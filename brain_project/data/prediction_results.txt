@@ -1,0 +1,4 @@
+Model performance on PMAT_A_CR (MSE)
+CPM                    : 10.3562
+LASSO                  : 9.0794
+Cholesky + KRR         : 12.1819

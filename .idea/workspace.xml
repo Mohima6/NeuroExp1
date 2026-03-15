@@ -1,7 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="f1bcff98-e5f4-40cc-affb-cc9114cda270" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brain_project/data/999.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brain_project/data/Bottom_10%_PMAT_Connectivity.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brain_project/data/Figure_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brain_project/data/Figure_12.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brain_project/data/Figure_123.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brain_project/data/Figure_19.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brain_project/data/Top_10%_PMAT_Connectivity.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brain_project/data/bottom_connectome.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brain_project/data/bottom_connectome_brain.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brain_project/data/bottom_glass.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brain_project/data/diff_matrix.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brain_project/data/figure4_synthetic.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brain_project/data/figures/alzheimer_mean.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brain_project/data/figures/autism_mean.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brain_project/data/figures/figure1_demographics.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brain_project/data/figures/figure1_network_parcellation.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brain_project/data/figures/figure3_diff_alzheimer.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brain_project/data/figures/figure3_diff_autism.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brain_project/data/figures/figure3_diff_parkinson.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brain_project/data/figures/figure4_significant_alzheimer.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brain_project/data/figures/figure4_significant_autism.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brain_project/data/figures/figure4_significant_parkinson.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brain_project/data/figures/figure5_network_barplot.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brain_project/data/figures/figure6_confusion_matrix.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brain_project/data/figures/figure6_feature_importance.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brain_project/data/figures/figure6_roc_curves.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brain_project/data/figures/healthy_mean.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brain_project/data/figures/parkinson_mean.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brain_project/data/prediction_results.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brain_project/data/region_divisions.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brain_project/data/synthetic_disorder_data.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brain_project/data/top_connectome.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brain_project/data/top_connectome_brain.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brain_project/data/top_glass.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brain_project/synthetic_correlations.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brain_project/synthetic_pmat.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/PythonProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/PythonProject.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/brain_project/asdData.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/brain_project/data/adData.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/brain_project/data/adhdData.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/brain_project/data/data_loader.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/brain_project/data/disorder_classification.py" beforeDir="false" afterPath="$PROJECT_DIR$/brain_project/data/disorder_classification.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/brain_project/data/disorder_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/brain_project/data/disorder_data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/brain_project/data/experiment_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/brain_project/data/experiment_1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/brain_project/data/sczData.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/brain_project/datafile.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/brain_project/healthyBraindata.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/brain_project/test1.py" beforeDir="false" afterPath="$PROJECT_DIR$/brain_project/test1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_loader.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/disorder_classification.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fc_matrix.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_experiment1.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prediction_models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/visualization_fig4.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../PythonProject2/model/segmentation.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../PythonProject2/model/yolo.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../PythonProject2/requirements.txt" beforeDir="false" />
@@ -36,24 +95,31 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Mohima6"
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Mohima6&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Mohima6/Ice-hockey-analysis.git",
-    "accountId": "4f5e6723-3c4d-4067-90c2-cfe56999f662"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Mohima6/Ice-hockey-analysis.git&quot;,
+    &quot;accountId&quot;: &quot;4f5e6723-3c4d-4067-90c2-cfe56999f662&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 1
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="3AtgL5t8vkwL2tL2E5AXrsHX22k" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -62,9 +128,20 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.adData.executor": "Run",
+    "Python.adhdData.executor": "Run",
+    "Python.asdData.executor": "Run",
+    "Python.datafile.executor": "Run",
+    "Python.disorder_classification.executor": "Run",
+    "Python.disorder_data.executor": "Run",
+    "Python.experiment_1.executor": "Run",
+    "Python.healthyBraindata.executor": "Run",
+    "Python.main_experiment1.executor": "Run",
+    "Python.sczData.executor": "Run",
+    "Python.test1.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "analysis-v1"
+    "git-widget-placeholder": "main"
   }
 }]]></component>
   <component name="SharedIndexes">
