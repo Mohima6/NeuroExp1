@@ -15,7 +15,7 @@ from nilearn import datasets, plotting
 import warnings
 warnings.filterwarnings("ignore")
 def is_positive_definite(B):
-    """Check if a matrix is positive definite via Cholesky."""
+    """if a matrix is positive definite via Cholesky."""
     try:
         np.linalg.cholesky(B)
         return True
@@ -23,7 +23,7 @@ def is_positive_definite(B):
         return False
 def nearest_positive_definite(A):
     """
-    Find the nearest positive-definite matrix to A (Higham 1988).
+    find nearest positive-definite matrix to A (Higham 1988).
     """
     B = (A + A.T) / 2
     _, s, V = np.linalg.svd(B)
@@ -58,17 +58,11 @@ DISORDER_COLORS = {
     'Autism': '#9467bd',
     'Parkinson': '#ff7f0e'
 }
-
-# synthetic connectivity data (with group differences)
-print("\n[1] synthetic data...")
-
+print("\n[1] synthetic data")
 def generate_group_correlations(n_subjects, base_corr, effect_network, effect_strength=0.0,
                                 random_seed=None, reg=0.01):
     """
-    Generate n_subjects correlation matrices with a common base structure,
-    plus a group-specific effect in a given network.
-    A small regularization term (reg) is added to the final matrix before
-    converting to correlation, guaranteeing positive definiteness.
+    Generate n_subjects correlation matrices, positive definiteness.
     """
     if random_seed is not None:
         np.random.seed(random_seed)
@@ -165,7 +159,7 @@ ax.legend(handles=legend_elements, bbox_to_anchor=(0.5, -0.5), loc='lower center
 plt.tight_layout()
 plt.savefig(os.path.join(OUTPUT_DIR, 'figure1_network_parcellation.png'), dpi=300)
 plt.close()
-print("\n[3] Computing Fréchet means...")
+print("\n[3] Computing Fréchet means")
 def frechet_mean_cholesky(mats):
     """Fréchet mean under the Euclidean‑Cholesky metric."""
     # All matrices are already PD, so Cholesky succeeds
@@ -179,10 +173,10 @@ for label in DISORDER_LABELS:
     idx = np.where(y == label)[0]
     group_means[label] = frechet_mean_cholesky(X_mats_pd[idx])
     print(f"  {DISORDER_NAMES[label]}: {len(idx)} subjects")
-print("\n[4] Loading brain atlas...")
+print("\n[4] Loading brain atlas")
 atlas = datasets.fetch_atlas_schaefer_2018(n_rois=100, yeo_networks=7)
 coords = plotting.find_parcellation_cut_coords(labels_img=atlas.maps)[:N_REGIONS]
-print("\n[5] Generating Figure 2 (interactive brain surfaces)...")
+print("\n[5] Generating Figure 2 (interactive brain surfaces)")
 def plot_group_surface(mat, group_name, filename):
     thresh = np.percentile(np.abs(mat), 98)
     mat_thresh = np.where(np.abs(mat) >= thresh, mat, 0)
@@ -192,7 +186,7 @@ def plot_group_surface(mat, group_name, filename):
     print(f"    Saved {filename}")
 for label, name in zip(DISORDER_LABELS, DISORDER_NAMES):
     plot_group_surface(group_means[label], name, f"{name.lower()}_mean.html")
-print("\n[6] Generating Figure 3: difference heatmaps...")
+print("\n[6] difference heatmaps")
 network_order = np.argsort(region_to_network)
 boundaries = []
 current_net = region_to_network[network_order[0]]
@@ -216,7 +210,7 @@ for label, name in zip(DISORDER_LABELS[1:], DISORDER_NAMES[1:]):
     plt.savefig(os.path.join(OUTPUT_DIR, f'figure3_diff_{name.lower()}.png'), dpi=300)
     plt.close()
     print(f"    Saved figure3_diff_{name.lower()}.png")
-print("\n[7] Generating Figure 4: significance maps...")
+print("\n[7] Figure 4: significance maps")
 healthy_idx = np.where(y == 0)[0]
 for label, name in zip(DISORDER_LABELS[1:], DISORDER_NAMES[1:]):
     disorder_idx = np.where(y == label)[0]
@@ -230,7 +224,7 @@ for label, name in zip(DISORDER_LABELS[1:], DISORDER_NAMES[1:]):
     print(f"    {name}: {np.sum(reject)} significant edges (FDR < 0.05)")
     t_mat = np.zeros((N_REGIONS, N_REGIONS))
     t_mat[i_upper] = t_stats
-    t_mat = t_mat + t_mat.T  # make symmetric
+    t_mat = t_mat + t_mat.T  
     sig_mat = np.zeros((N_REGIONS, N_REGIONS), dtype=bool)
     sig_mat[i_upper] = reject
     sig_mat = sig_mat + sig_mat.T 
@@ -243,7 +237,7 @@ for label, name in zip(DISORDER_LABELS[1:], DISORDER_NAMES[1:]):
             output_file=os.path.join(OUTPUT_DIR, f'figure4_significant_{name.lower()}.png')
         )
         print(f"    Saved figure4_significant_{name.lower()}.png")
-print("\n[8] Figure 5: network-level bar plots...")
+print("\n[8]  network-level bar plots")
 def network_mean_connectivity(corr_mat, region_to_network):
     n_net = len(np.unique(region_to_network))
     net_mat = np.zeros((n_net, n_net))
@@ -292,9 +286,7 @@ plt.tight_layout()
 plt.savefig(os.path.join(OUTPUT_DIR, 'figure5_network_barplot.png'), dpi=300)
 plt.close()
 print("    Saved figure5_network_barplot.png")
-print("\n[9] Generating Figure 6: classification results...")
-
-# Cholesky features for classification
+print("\n[9] classification results")
 def chol_vec(mat):
     L = cholesky(mat, lower=True)
     return L[np.tril_indices_from(L)]
@@ -310,7 +302,7 @@ rf = RandomForestClassifier(n_estimators=200, class_weight='balanced', random_st
 rf.fit(X_train, y_train)
 y_pred = rf.predict(X_test)
 acc = accuracy_score(y_test, y_pred)
-print(f"    Multi-class accuracy: {acc:.3f}")
+print(f"Multi-class accuracy: {acc:.3f}")
 # Confusion matrix
 cm = confusion_matrix(y_test, y_pred)
 disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=DISORDER_NAMES)
@@ -318,7 +310,7 @@ disp.plot(cmap='Blues', values_format='d')
 plt.title(f'Multi-class classification accuracy: {acc:.2%}')
 plt.savefig(os.path.join(OUTPUT_DIR, 'figure6_confusion_matrix.png'), dpi=300)
 plt.close()
-print("    Saved figure6_confusion_matrix.png")
+print("Saved figure6_confusion_matrix.png")
 # ROC curves (one-vs-rest)
 y_bin = label_binarize(y_test, classes=DISORDER_LABELS)
 n_classes = len(DISORDER_LABELS)
@@ -344,7 +336,7 @@ plt.legend(loc="lower right")
 plt.tight_layout()
 plt.savefig(os.path.join(OUTPUT_DIR, 'figure6_roc_curves.png'), dpi=300)
 plt.close()
-print("    Saved figure6_roc_curves.png")
+print("Saved figure6_roc_curves.png")
 # Feature importance map
 importances = rf.feature_importances_
 imp_mat = np.zeros((N_REGIONS, N_REGIONS))
@@ -357,8 +349,8 @@ plotting.plot_connectome(
     edge_cmap='hot', title='Top 2% most important edges (Random Forest)',
     output_file=os.path.join(OUTPUT_DIR, 'figure6_feature_importance.png')
 )
-print("    Saved figure6_feature_importance.png")
+print("Saved figure6_feature_importance.png")
 print("\n" + "="*60)
-print("All figures and HTML files have been saved in:")
+print("figures, HTML files saved :")
 print(f"  {OUTPUT_DIR}")
 print("="*60)
