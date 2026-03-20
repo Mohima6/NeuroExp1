@@ -21,8 +21,8 @@ pmat_path = os.path.join(parent_dir, "synthetic_pmat.csv")
 df_corr = pd.read_csv(corr_path)
 df_pmat = pd.read_csv(pmat_path)
 X_flat = df_corr.values.astype(np.float64)
-y_cr = df_pmat["PMAT_A_CR"].values.astype(np.float64)   # number correct
-y_si = df_pmat["PMAT_A_SI"].values.astype(np.float64)   # items skipped
+y_cr = df_pmat["PMAT_A_CR"].values.astype(np.float64)   
+y_si = df_pmat["PMAT_A_SI"].values.astype(np.float64)   
 n_subjects, n_edges = X_flat.shape
 n_regions = 65 
 i_upper = np.triu_indices(n_regions, k=1)
@@ -72,7 +72,7 @@ plt.savefig("diff_matrix.png", dpi=300)
 plt.show()
 #  Brain surface 
 #  Uses fsaverage surface; realistic cortical surface with connectome
-print("Loading brain atlas and surfaces...")
+print("Loading brain atlas and surfaces")
 atlas = datasets.fetch_atlas_schaefer_2018(n_rois=100, yeo_networks=7)
 coords = plotting.find_parcellation_cut_coords(labels_img=atlas.maps)[:n_regions]
 def plot_brain_surface(mat, title, filename, threshold_percent=98):
