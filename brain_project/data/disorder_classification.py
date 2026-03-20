@@ -98,19 +98,15 @@ base = base / np.outer(d, d)
 base = np.clip(base, -1, 1)
 np.fill_diagonal(base, 1)
 groups = {}
-# Healthy: no extra effect
 groups[0] = generate_group_correlations(N_SUBJECTS_PER_GROUP, base,
                                          effect_network=None, effect_strength=0,
                                          random_seed=100)
-# Alzheimer's: decrease default mode (network 1)
 groups[1] = generate_group_correlations(N_SUBJECTS_PER_GROUP, base,
                                          effect_network=1, effect_strength=-0.15,
                                          random_seed=200)
-# Autism: increase salience/ventral attention (network 4)
 groups[2] = generate_group_correlations(N_SUBJECTS_PER_GROUP, base,
                                          effect_network=4, effect_strength=0.2,
                                          random_seed=300)
-# Parkinson's: decrease somatomotor (network 5)
 groups[3] = generate_group_correlations(N_SUBJECTS_PER_GROUP, base,
                                          effect_network=5, effect_strength=-0.1,
                                          random_seed=400)
@@ -162,7 +158,6 @@ plt.close()
 print("\n[3] Computing Fréchet means")
 def frechet_mean_cholesky(mats):
     """Fréchet mean under the Euclidean‑Cholesky metric."""
-    # All matrices are already PD, so Cholesky succeeds
     chol = np.array([cholesky(m, lower=True) for m in mats])
     mean_chol = np.mean(chol, axis=0)
     mean_corr = mean_chol @ mean_chol.T
@@ -311,7 +306,6 @@ plt.title(f'Multi-class classification accuracy: {acc:.2%}')
 plt.savefig(os.path.join(OUTPUT_DIR, 'figure6_confusion_matrix.png'), dpi=300)
 plt.close()
 print("Saved figure6_confusion_matrix.png")
-# ROC curves (one-vs-rest)
 y_bin = label_binarize(y_test, classes=DISORDER_LABELS)
 n_classes = len(DISORDER_LABELS)
 y_score = rf.predict_proba(X_test)
@@ -337,7 +331,6 @@ plt.tight_layout()
 plt.savefig(os.path.join(OUTPUT_DIR, 'figure6_roc_curves.png'), dpi=300)
 plt.close()
 print("Saved figure6_roc_curves.png")
-# Feature importance map
 importances = rf.feature_importances_
 imp_mat = np.zeros((N_REGIONS, N_REGIONS))
 imp_mat[np.tril_indices_from(imp_mat)] = importances
